@@ -1,12 +1,13 @@
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+
+import 'package:get/get.dart';
 import 'package:mechaku_getx/app/routes/app_pages.dart';
+import 'package:mechaku_getx/shared/theme.dart';
+import 'package:mechaku_getx/widgets/widgets.dart';
 
-import '../../../../shared/theme.dart';
-import '../../../../widgets/widgets.dart';
-import '../controllers/sign_in_controller.dart';
+import '../controllers/sign_up_controller.dart';
 
-class SignInView extends GetView<SignInController> {
+class SignUpView extends GetView<SignUpController> {
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
 
   @override
@@ -26,7 +27,7 @@ class SignInView extends GetView<SignInController> {
       return Container(
         margin: EdgeInsets.only(bottom: 30),
         child: Text(
-          'Hey, \nLogin Now',
+          'Create \nAccount',
           style: titleTextStyle,
         ),
       );
@@ -40,6 +41,22 @@ class SignInView extends GetView<SignInController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Full Name
+              CustomTextField(
+                label: 'Full Name',
+                hintText: 'Your Full Name',
+                prefixIconUrl: 'assets/fullname_icon.png',
+                controller: controller.fullnameController,
+              ),
+
+              // Username
+              CustomTextField(
+                label: 'Username',
+                hintText: 'Your Username',
+                prefixIconUrl: 'assets/username_icon.png',
+                controller: controller.usernameController,
+              ),
+
               // Email
               CustomTextField(
                 label: 'Email Address',
@@ -56,33 +73,42 @@ class SignInView extends GetView<SignInController> {
                 prefixIconUrl: 'assets/password_icon.png',
                 controller: controller.passwordController,
               ),
+
+              // Retype Password
+              CustomTextField(
+                isPassword: true,
+                label: 'Retype Password',
+                hintText: 'Your Password',
+                prefixIconUrl: 'assets/password_icon.png',
+                controller: controller.retypePasswordController,
+              ),
             ],
           ),
         ),
       );
     }
 
-    Widget _signInButton() {
-      return CustomButton(text: 'Sign In');
+    Widget _signUpButton() {
+      return CustomButton(text: 'Sign Up');
     }
 
-    Widget _signUp() {
+    Widget _signIn() {
       return Container(
-        margin: EdgeInsets.only(top: 160),
+        margin: EdgeInsets.only(top: 100),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Don't have an account? ",
+              "Already have an account? ",
               style: regularTextStyle.copyWith(fontSize: 12),
             ),
             GestureDetector(
               onTap: () {
-                Get.toNamed(Routes.SIGN_UP);
+                Get.toNamed(Routes.SIGN_IN);
               },
               child: Text(
-                'Sign Up',
+                'Sign In',
                 style: orangeTextStyle.copyWith(
                   fontSize: 12,
                   color: orangeColor,
@@ -107,8 +133,8 @@ class SignInView extends GetView<SignInController> {
                 _logo(),
                 _title(),
                 _form(),
-                _signInButton(),
-                _signUp(),
+                _signUpButton(),
+                _signIn(),
               ],
             ),
           ),

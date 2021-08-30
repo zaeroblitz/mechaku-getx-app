@@ -1,5 +1,4 @@
 import '../shared/theme.dart';
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 part 'custom_button.dart';
