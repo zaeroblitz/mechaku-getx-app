@@ -63,7 +63,10 @@ class SignInView extends GetView<SignInController> {
     }
 
     Widget _signInButton() {
-      return CustomButton(text: 'Sign In');
+      return CustomButton(
+        text: 'Sign In',
+        onPressed: () {},
+      );
     }
 
     Widget _signUp() {

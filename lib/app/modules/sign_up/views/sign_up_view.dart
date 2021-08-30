@@ -1,14 +1,14 @@
-import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-import 'package:mechaku_getx/app/routes/app_pages.dart';
-import 'package:mechaku_getx/shared/theme.dart';
-import 'package:mechaku_getx/widgets/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:mechaku_getx/app/controllers/auth_controller.dart';
 
+import '../../../../shared/theme.dart';
+import '../../../../widgets/widgets.dart';
 import '../controllers/sign_up_controller.dart';
 
 class SignUpView extends GetView<SignUpController> {
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
+  var authC = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +89,17 @@ class SignUpView extends GetView<SignUpController> {
     }
 
     Widget _signUpButton() {
-      return CustomButton(text: 'Sign Up');
+      return CustomButton(
+        text: 'Sign Up',
+        onPressed: () {
+          authC.signUp(
+            email: controller.emailController.text,
+            password: controller.passwordController.text,
+            name: controller.fullnameController.text,
+            username: controller.usernameController.text,
+          );
+        },
+      );
     }
 
     Widget _signIn() {
@@ -105,7 +115,7 @@ class SignUpView extends GetView<SignUpController> {
             ),
             GestureDetector(
               onTap: () {
-                Get.toNamed(Routes.SIGN_IN);
+                Get.back();
               },
               child: Text(
                 'Sign In',

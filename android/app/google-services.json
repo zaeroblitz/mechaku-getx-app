@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "952811300720",
+    "project_id": "mechakugetx",
+    "storage_bucket": "mechakugetx.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952811300720:android:280ecc78b826ba530d11b5",
+        "android_client_info": {
+          "package_name": "com.zaeroblitz.mechaku_getx.mechaku_getx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "952811300720-gvoufj4rmibhqrvg0fmg3bjhkipi1h46.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATZ1rDUKxhpHRWEH3WdOyrYi_vj4efUHw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "952811300720-gvoufj4rmibhqrvg0fmg3bjhkipi1h46.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
